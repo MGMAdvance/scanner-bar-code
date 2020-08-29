@@ -14,11 +14,11 @@ const App = () => {
             <select id="deviceSelection">
               <option>teste</option>
             </select>
+            <ul id="list-itens"></ul>
             <ul className="results">
                 {results.map((result) => (result.codeResult && <Result key={result.codeResult.code} result={result} />))}
             </ul>
-            <ul id="list-itens"></ul>
-            
+
             <div ref={scannerRef} style={{position: 'relative', border: '3px solid red'}}>
                 {/* <video style={{ width: window.innerWidth, height: 480, border: '3px solid orange' }}/> */}
                 <canvas className="drawingBuffer" style={{
