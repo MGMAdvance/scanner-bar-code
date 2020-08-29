@@ -29,6 +29,8 @@ const App = () => {
                 }} width="640" height="480" />
                 {scanning ? <Scanner scannerRef={scannerRef} onDetected={(result) => setResults([...results, result])} /> : null}
             </div>
+            <ul id="list-itens">
+            </ul>
         </div>
     );
 };

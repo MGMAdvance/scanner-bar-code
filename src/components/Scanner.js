@@ -78,6 +78,14 @@ const Scanner = ({
         });
     }
 
+    const appendItemList = (code) => {
+        let list = document.getElementById("list-itens");
+        let item = document.createElement("li");
+
+        item.textContent = code;
+        list.appendChild(item);
+    }
+
     const handleProcessed = (result) => {
         const drawingCtx = Quagga.canvas.ctx.overlay;
         const drawingCanvas = Quagga.canvas.dom.overlay;
@@ -92,9 +100,11 @@ const Scanner = ({
                     Quagga.ImageDebug.drawPath(box, { x: 0, y: 1 }, drawingCtx, { color: 'purple', lineWidth: 2 });
                 });
             }
+
             if (result.box) {
                 Quagga.ImageDebug.drawPath(result.box, { x: 0, y: 1 }, drawingCtx, { color: 'blue', lineWidth: 2 });
             }
+
             if (result.codeResult && result.codeResult.code) {
                 // const validated = barcodeValidator(result.codeResult.code);
                 // const validated = validateBarcode(result.codeResult.code);
@@ -106,6 +116,7 @@ const Scanner = ({
                 // if (validated) {
                 //     onDetected(result);
                 // }
+                appendItemList(result.codeResult.code);
             }
         }
     };
